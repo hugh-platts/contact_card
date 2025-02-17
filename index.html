@@ -5,28 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Card</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 15px;
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 20px; 
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            margin: 8px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 12px;
             font-size: 18px;
+            color: white;
+            background-color: #007BFF;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin: 10px 0;
+            transition: background 0.3s;
         }
-        button:hover { background-color: #0056b3; }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .whatsapp-button {
+            background-color: #25D366;
+        }
+        .whatsapp-button:hover {
+            background-color: #1ebe57;
+        }
     </style>
 </head>
 <body>
 
-    <h2>Contact Information</h2>
-    <p><strong>Name:</strong> Marcia Platts</p>
-    <p><strong>Phone:</strong> <a href="tel:+447713883813">+44 7713 883813</a></p>
-    <p><strong>Email:</strong> <a href="mailto:riddithomes1@gmail.com">riddithomes1@gmail.com</a></p>
+    <div class="container">
+        <h2>Contact Information</h2>
+        <p><strong>Name:</strong> Marcia Platts</p>
+        <p><strong>Phone:</strong> <a href="tel:+447713883813">+44 7713 883813</a></p>
+        <p><strong>Email:</strong> <a href="mailto:riddithomes1@gmail.com">riddithomes1@gmail.com</a></p>
 
-    <br>
-    <button onclick="downloadVCard()">Add to Contacts</button>
+        <button class="button" onclick="downloadVCard()">Add to Contacts</button>
+
+        <!-- WhatsApp Button -->
+        <button class="button whatsapp-button" onclick="openWhatsApp()">Message on WhatsApp</button>
+    </div>
 
     <script>
         function downloadVCard() {
@@ -45,6 +90,12 @@ END:VCARD`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+        }
+
+        function openWhatsApp() {
+            const phoneNumber = "07424463887"; // WhatsApp number
+            const url = `https://wa.me/${phoneNumber}`;
+            window.open(url, "_blank");
         }
     </script>
 
